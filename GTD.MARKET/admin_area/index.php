@@ -1,3 +1,10 @@
+<!-- connect file -->
+<?php
+include('../includes/connect.php');
+include('../functions/common_function.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,8 +35,12 @@
       position: absolute;
       bottom: 0;
     }
-  </style>
 
+
+    .body {
+      overflow-x: hidden;
+    }
+  </style>
 
 
 
@@ -38,7 +49,7 @@
 <body>
 
   <!-- navbar -->
-  <div class="container-fluid p-0">
+  <div class="container-fluid p-0 nn">
     <!-- first child -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
       <div class="conteiner-fluid">
@@ -72,23 +83,22 @@
         <div class="button text-center">
           <button class="my-3"><a href="insert_product.php" class="nav-link text-light 
         bg-info my-1">Insert Products</a></button>
-          <button class="my-3"><a href="" class="nav-link text-light 
+          <button><a href="index.php?view_products" class="nav-link text-light 
         bg-info my-1">View Products</a></button>
-          <button class="my-3"><a href="index.php?insert category" class="nav-link text-light 
-        bg-info my-1">Insert Categories</a></button>
-          <button class="my-3"><a href="" class="nav-link text-light 
+          <button><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert Categories</a></button>
+          <button><a href="" class="nav-link text-light 
         bg-info my-1">View Categories</a></button>
-          <button class="my-3"><a href="index.php?insert_brand" class="nav-link text-light 
+          <button><a href="index.php?insert_brand" class="nav-link text-light 
         bg-info my-1">Insert Brands</a></button>
-          <button class="my-3"><a href="" class="nav-link text-light 
+          <button><a href="" class="nav-link text-light 
         bg-info my-1">View Brands</a></button>
-          <button class="my-3"><a href="" class="nav-link text-light 
+          <button><a href="" class="nav-link text-light 
         bg-info my-1">All orders</a></button>
-          <button class="my-3"><a href="" class="nav-link text-light 
+          <button><a href="" class="nav-link text-light 
         bg-info my-1">All payments</a></button>
-          <button class="my-3"><a href="" class="nav-link text-light 
+          <button><a href="" class="nav-link text-light 
         bg-info my-1">List users</a></button>
-          <button class="my-3"><a href="" class="nav-link text-light 
+          <button><a href="" class="nav-link text-light 
         bg-info my-1">Logout</a></button>
         </div>
       </div>
@@ -107,24 +117,20 @@
       if (isset($_GET['insert_category'])) {
         include('insert_categories.php');
       }
-
       if (isset($_GET['insert_brand'])) {
         include('insert_brands.php');
       }
-
-
-
+      if (isset($_GET['view_product'])) {
+        include('view_products.php');
+      }
       ?>
     </div>
-
   </div>
 
 
 
   <!-- last child -->
-  <div class="bg-info p-3 text-center footer">
-    <p>All rights reserved - © Template by Artem Galkin. Все права защищены-2022</p>
-  </div>
+  <?php include("../includes/footer.php") ?>
   </div>
 
   <!-- boot strapt JS link -->
