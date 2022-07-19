@@ -39,6 +39,11 @@ include('../functions/common_function.php');
     body {
       overflow-x: hidden;
     }
+
+    .product_img {
+      width: 10%;
+      object-fit: contain;
+    }
   </style>
 
 
