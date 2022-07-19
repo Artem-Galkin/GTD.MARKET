@@ -2,7 +2,6 @@
 <?php
 include('../includes/connect.php');
 include('../functions/common_function.php');
-session_start();
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +36,7 @@ session_start();
     }
 
 
-    .body {
+    body {
       overflow-x: hidden;
     }
   </style>
@@ -76,7 +75,7 @@ session_start();
       <div class="col-md-12 bg-secondary p-1 d-flex align-items-center">
         <div class="px-3">
           <a href="#"><img src="../images/face.png" alt="" class="admin_image"></a>
-          <p class="text-light text-center">Admin name</p>
+          <p class="text-light text-center">Admin Name</p>
         </div>
 
         <!-- button*10>a.nav-link.text-light.bg-info.me-1 -->
@@ -120,7 +119,7 @@ session_start();
       if (isset($_GET['insert_brand'])) {
         include('insert_brands.php');
       }
-      if (isset($_GET['view_product'])) {
+      if (isset($_GET['view_products'])) {
         include('view_products.php');
       }
       ?>
