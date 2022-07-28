@@ -41,7 +41,7 @@ include('../functions/common_function.php');
     }
 
     .product_img {
-      width: 10%;
+      width: 100px;
       object-fit: contain;
     }
   </style>
@@ -127,6 +127,12 @@ include('../functions/common_function.php');
       if (isset($_GET['view_products'])) {
         include('view_products.php');
       }
+      if (isset($_GET['edit_products'])) {
+        include('edit_products.php');
+      }
+
+
+
       ?>
     </div>
   </div>
