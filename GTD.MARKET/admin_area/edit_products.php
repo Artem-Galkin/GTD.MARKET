@@ -136,9 +136,57 @@ if (isset($_GET['edit_products'])) {
 
       <input type="submit" name="edit_product" value="Update product" class="btn btn-info px-3 mb-3">
     </div>
-
-
-
-
   </form>
 </div>
+
+
+<!-- editing products  -->
+
+<?php
+
+
+if (isset($_POST['edit_product'])) {
+  $product_title = $_POST['product_title'];
+  $product_desc = $_POST['product_desc'];
+  $product_keywords = $_POST['product_keywords'];
+  $product_category = $_POST['product_category'];
+  $product_brands = $_POST['product_brands'];
+  $product_price = $_POST['product_price'];
+
+
+  $product_image1 = $_FILES['product_image1']['name'];
+  $product_image2 = $_FILES['product_image2']['name'];
+  $product_image3 = $_FILES['product_image3']['name'];
+
+
+  $temp_image1 = $_FILES['product_image1']['tmp_name'];
+  $temp_image2 = $_FILES['product_image2']['tmp_name'];
+  $temp_image3 = $_FILES['product_image3']['tmp_name'];
+
+
+
+
+  // checking fo fields empty or not
+
+  if($product_title=='' or $product_desc=='' or $product_keywords == '' or $product_category == '' or $product_brands == '' or $product_image1 == '' or $product_image2 == '' $product_image3 == '' or $product_price == ''){
+    echo "<script> alert('Please fill all the fields and continue the process')</script>";
+  }else{
+    move_uploaded_file($temp_image1,"./admin_area/product_images/  $product_image1");
+    move_uploaded_file($temp_image2, "./admin_area/product_images/  $product_image2");
+
+    move_uploaded_file($temp_image3, "./admin_area/product_images/  $product_image3");
+
+
+    // query to update products
+    $update_product="update `products` set product_title='$product_title', product_description='$product_desc', product_keywords='$product_keywords', category_id='$product_category', brand_id='$product_brand', product_image1='$product_image1',product_image2='$product_image2', product_image3='$product_image3,product_price='$product_price',date=NOW() where product_id=$edit_id";
+    $result_update=mysqli_query($con,$update_product);
+    if($result_update){
+       echo "<script>alert('Product updated successfully')</script>";
+        echo "<script>window.open('./index.php','_self')</script>";
+
+    }
+  }
+}
+
+
+?>

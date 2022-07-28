@@ -130,6 +130,13 @@ include('../functions/common_function.php');
       if (isset($_GET['edit_products'])) {
         include('edit_products.php');
       }
+      if (isset($_GET['delete_product'])) {
+        include('delete_product.php');
+      }
+
+
+
+
 
 
 

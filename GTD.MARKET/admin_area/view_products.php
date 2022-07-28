@@ -39,7 +39,7 @@
             ?></td>
         <td><?php echo $status; ?></td>
         <td><a href='index.php?edit_products=<?php echo $product_id ?>' class='text-light'><i class='fa-solid fa-pen-to-square'></i></a></td>
-        <td><a href='' class='text-light'><i class='fa-solid fa-trash'></i></td>
+        <td><a href='index.php?delete_products=<?php echo $product_id ?>' class='text-light'><i class='fa-solid fa-trash'></i></td>
       </tr>
     <?php
     }
